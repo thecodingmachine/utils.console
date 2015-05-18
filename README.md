@@ -1,7 +1,6 @@
-[![Latest Stable Version](https://poser.pugx.org/mouf/nodejs-installer/v/stable.svg)](https://packagist.org/packages/mouf/nodejs-installer)
-[![Latest Unstable Version](https://poser.pugx.org/mouf/nodejs-installer/v/unstable.svg)](https://packagist.org/packages/mouf/nodejs-installer)
-[![License](https://poser.pugx.org/mouf/nodejs-installer/license.svg)](https://packagist.org/packages/mouf/nodejs-installer)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/thecodingmachine/nodejs-installer/badges/quality-score.png?b=1.0)](https://scrutinizer-ci.com/g/thecodingmachine/nodejs-installer/?branch=1.0)
+[![Latest Stable Version](https://poser.pugx.org/mouf/utils.console/v/stable.svg)](https://packagist.org/packages/mouf/utils.console)
+[![Latest Unstable Version](https://poser.pugx.org/mouf/utils.console/v/unstable.svg)](https://packagist.org/packages/mouf/utils.console)
+[![License](https://poser.pugx.org/mouf/utils.console/license.svg)](https://packagist.org/packages/mouf/utils.console)
 
 Console for Mouf PHP framework
 ==============================
