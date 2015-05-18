@@ -23,6 +23,12 @@
     },
     "bin": [ "bin/mouf_console.php" ],
     "extra" : {
-
+        "mouf" : {
+            "install" : [{
+                "type" : "class",
+                "class" : "Mouf\\Console\\ConsoleInstaller"
+            }
+            ]
+        }
     }
 }
