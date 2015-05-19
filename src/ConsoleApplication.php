@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Mouf core package.
+ * This file is part of the Mouf package.
  *
  * (c) 2012-2015 David Negrier <david@mouf-php.com>
  *
@@ -11,6 +11,7 @@ namespace Mouf\Console;
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\HelperSet;
 
 /**
  * This class is a simple Symfony based console application
@@ -18,6 +19,20 @@ use Symfony\Component\Console\Command\Command;
  *
  */
 class ConsoleApplication extends Application {
+
+	/**
+	 * Set a helper set to be used with the command.
+	 *
+	 *
+	 * @param HelperSet $helperSet The helper set
+	 *
+	 * @api
+	 */
+	public function setHelperSet(HelperSet $helperSet)
+	{
+		// Only redeclared here to be above setCommands (it must be executed before!)
+		parent::setHelperSet($helperSet);
+	}
 
 	/**
 	 * Simple alias to 'addCommands' so that we can use the Mouf UI.

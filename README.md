@@ -39,3 +39,23 @@ In order to create a new command, you should:
 - create an install script for your package
 - create an instance of the command in this installation script
 - register this command using `ConsoleUtils::registerCommand($command)`
+
+Here is a sample script you could put in your install script:
+
+```php
+use Mouf\Actions\InstallUtils;
+use Mouf\Console\ConsoleUtils;
+use Mouf\MoufManager;
+
+...
+// Let's create an instance of "ConsoleUtils"
+$consoleUtils = new ConsoleUtils($moufManager);
+
+// We declare our instance of the Symfony command as a Mouf instance
+$dbalRunSqlCommand = InstallUtils::getOrCreateInstance('dbalRunSqlCommand', 'Doctrine\\DBAL\\Tools\\Console\\Command\\RunSqlCommand', $moufManager);
+
+// We register that instance descriptor using "ConsoleUtils"
+$consoleUtils->registerCommand($dbalRunSqlCommand);
+```
+
+If you need a particular "helperSet", you can register it using `ConsoleUtils::registerHelperSet($helperSet)`

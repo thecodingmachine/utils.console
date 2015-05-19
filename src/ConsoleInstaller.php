@@ -18,7 +18,14 @@ class ConsoleInstaller implements PackageInstallerInterface {
      * @throws \Mouf\MoufException
      */
     public static function install(MoufManager $moufManager) {
-        InstallUtils::getOrCreateInstance('console', 'Mouf\\Console\\ConsoleApplication', $moufManager);
+        // Let's create the instances.
+        $console = InstallUtils::getOrCreateInstance('console', 'Mouf\\Console\\ConsoleApplication', $moufManager);
+        $helperSet = InstallUtils::getOrCreateInstance('helperSet', 'Mouf\\Console\\HelperSet', $moufManager);
+
+        // Let's bind instances together.
+        if (!$console->getSetterProperty('setHelperSet')->isValueSet()) {
+            $console->getSetterProperty('setHelperSet')->setValue($helperSet);
+        }
 
         // Let's rewrite the MoufComponents.php file to save the component
         $moufManager->rewriteMouf();
