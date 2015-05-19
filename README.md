@@ -29,14 +29,27 @@ Simply include this package in your `composer.json` requirements:
 
 The command line will be accessible from `vendor/bin/mouf_console.php`
 
+Adding your own command
+-----------------------
+
+In order to add a new command to the list of available commands, 
+you must [create a new class extending the `Command` class](http://symfony.com/doc/current/components/console/introduction.html#creating-a-basic-command).
+
+Then, you should create an instance of the class in Mouf user interface.
+
+Finally, the console application is represented by the `console` instance in Mouf.
+Edit this instance, and drag'n'drop your command in the list of known commands:
+
+![The console instance](doc/images/console_instance.png)
+
 Package developers
 ------------------
 
 Most of what you need to know is detailed in [Symfony's doc](http://symfony.com/doc/current/components/console/introduction.html).
 
-In order to create a new command, you should:
+In order to create a new command and register it automatically when you package is installed, you should:
 
-- create an install script for your package
+- create [an install script for your package](http://mouf-php.com/packages/mouf/mouf/doc/install_process.md)
 - create an instance of the command in this installation script
 - register this command using `ConsoleUtils::registerCommand($command)`
 
@@ -57,5 +70,7 @@ $dbalRunSqlCommand = InstallUtils::getOrCreateInstance('dbalRunSqlCommand', 'Doc
 // We register that instance descriptor using "ConsoleUtils"
 $consoleUtils->registerCommand($dbalRunSqlCommand);
 ```
+
+Notice how `$dbalRunSqlCommand` is a descriptor of the 'dbalRunSqlCommand' instance and not the instance itself.
 
 If you need a particular "helperSet", you can register it using `ConsoleUtils::registerHelperSet($helperSet)`
