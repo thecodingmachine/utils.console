@@ -10,14 +10,16 @@ use Mouf\Actions\InstallUtils;
 use Mouf\Installer\PackageInstallerInterface;
 use Mouf\MoufManager;
 
-class ConsoleInstaller implements PackageInstallerInterface {
+class ConsoleInstaller implements PackageInstallerInterface
+{
     /**
      * (non-PHPdoc)
      * @see \Mouf\Installer\PackageInstallerInterface::install()
-     * @param MoufManager $moufManager
+     * @param  MoufManager         $moufManager
      * @throws \Mouf\MoufException
      */
-    public static function install(MoufManager $moufManager) {
+    public static function install(MoufManager $moufManager)
+    {
         // Let's create the instances.
         $console = InstallUtils::getOrCreateInstance('console', 'Mouf\\Console\\ConsoleApplication', $moufManager);
         $helperSet = InstallUtils::getOrCreateInstance('helperSet', 'Mouf\\Console\\HelperSet', $moufManager);

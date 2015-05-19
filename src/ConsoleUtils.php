@@ -1,11 +1,11 @@
 <?php
 namespace Mouf\Console;
 
-
 use Mouf\MoufInstanceDescriptor;
 use Mouf\MoufManager;
 
-class ConsoleUtils {
+class ConsoleUtils
+{
 
     /**
      * @var MoufManager
@@ -19,12 +19,13 @@ class ConsoleUtils {
 
     /**
      * Registers a new command
-     * @param MoufInstanceDescriptor $commandDescriptor
-     * @param bool $avoidDuplicateClass If true and if $commandDescriptor as a descriptor of a class already added,
-     *    nothing is done.
+     * @param  MoufInstanceDescriptor $commandDescriptor
+     * @param  bool                   $avoidDuplicateClass If true and if $commandDescriptor as a descriptor of a class already added,
+     *                                                     nothing is done.
      * @throws \Mouf\MoufException
      */
-    public function registerCommand(MoufInstanceDescriptor $commandDescriptor, $avoidDuplicateClass = true) {
+    public function registerCommand(MoufInstanceDescriptor $commandDescriptor, $avoidDuplicateClass = true)
+    {
         $console = $this->moufManager->getInstanceDescriptor('console');
         $commands = $console->getSetterProperty('setCommands')->getValue();
 
@@ -43,16 +44,16 @@ class ConsoleUtils {
     }
 
     /**
-     * @param MoufInstanceDescriptor $helperDescriptor
-     * @param string $key
+     * @param  MoufInstanceDescriptor $helperDescriptor
+     * @param  string                 $key
      * @throws \Mouf\MoufException
      */
-    public function registerHelper(MoufInstanceDescriptor $helperDescriptor, $key) {
+    public function registerHelper(MoufInstanceDescriptor $helperDescriptor, $key)
+    {
         $helperSet = $this->moufManager->getInstanceDescriptor('helperSet');
 
         $helpers = $helperSet->getConstructorArgumentProperty('helpers')->getValue();
         $helpers[$key] = $helperDescriptor;
         $helperSet->getConstructorArgumentProperty('helpers')->setValue($helpers);
     }
-
 }

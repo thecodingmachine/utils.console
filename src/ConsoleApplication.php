@@ -18,27 +18,29 @@ use Symfony\Component\Console\Helper\HelperSet;
  * extended to match Mouf convention about setters.
  *
  */
-class ConsoleApplication extends Application {
+class ConsoleApplication extends Application
+{
 
-	/**
-	 * Set a helper set to be used with the command.
-	 *
-	 *
-	 * @param HelperSet $helperSet The helper set
-	 *
-	 * @api
-	 */
-	public function setHelperSet(HelperSet $helperSet)
-	{
-		// Only redeclared here to be above setCommands (it must be executed before!)
-		parent::setHelperSet($helperSet);
-	}
+    /**
+     * Set a helper set to be used with the command.
+     *
+     *
+     * @param HelperSet $helperSet The helper set
+     *
+     * @api
+     */
+    public function setHelperSet(HelperSet $helperSet)
+    {
+        // Only redeclared here to be above setCommands (it must be executed before!)
+        parent::setHelperSet($helperSet);
+    }
 
-	/**
-	 * Simple alias to 'addCommands' so that we can use the Mouf UI.
-	 * @param Command[] $commands
-	 */
-	public function setCommands(array $commands) {
-		$this->addCommands($commands);
-	}
+    /**
+     * Simple alias to 'addCommands' so that we can use the Mouf UI.
+     * @param Command[] $commands
+     */
+    public function setCommands(array $commands)
+    {
+        $this->addCommands($commands);
+    }
 }

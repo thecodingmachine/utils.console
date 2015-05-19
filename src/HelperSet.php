@@ -16,15 +16,16 @@ use Symfony\Component\Console\Helper\Helper;
  * extended to match Mouf convention about associative arrays.
  *
  */
-class HelperSet extends \Symfony\Component\Console\Helper\HelperSet {
+class HelperSet extends \Symfony\Component\Console\Helper\HelperSet
+{
 
-	/**
-	 * Constructor.
-	 *
-	 * @param array<string, Helper> $helpers An array of helper.
-	 */
-	public function __construct(array $helpers = array())
-	{
-		parent::__construct($helpers);
-	}
+    /**
+     * Constructor.
+     *
+     * @param array<string, Helper> $helpers An array of helper.
+     */
+    public function __construct(array $helpers = array())
+    {
+        parent::__construct($helpers);
+    }
 }
