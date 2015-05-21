@@ -27,7 +27,7 @@ Simply include this package in your `composer.json` requirements:
 }
 ```
 
-The command line will be accessible from `vendor/bin/mouf_console.php`
+The command line will be accessible from `vendor/bin/mouf_console`
 
 Adding your own command
 -----------------------
