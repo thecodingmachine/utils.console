@@ -21,7 +21,7 @@
             "Mouf\\Console\\": "src/"
         }
     },
-    "bin": [ "bin/mouf_console.php" ],
+    "bin": [ "bin/mouf_console" ],
     "extra" : {
         "mouf" : {
             "install" : [{
