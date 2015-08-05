@@ -28,6 +28,10 @@ class ConsoleUtils
     {
         $console = $this->moufManager->getInstanceDescriptor('console');
         $commands = $console->getSetterProperty('setCommands')->getValue();
+        
+        if(!is_array($commands)) {
+            $commands = array();
+        }
 
         if ($avoidDuplicateClass) {
             foreach ($commands as $command) {
