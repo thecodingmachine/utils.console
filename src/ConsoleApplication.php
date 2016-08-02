@@ -11,7 +11,7 @@ namespace Mouf\Console;
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Helper\HelperSet;
+use Symfony\Component\Console\Helper\HelperSet as SymfonyHelperSet;
 
 /**
  * This class is a simple Symfony based console application
@@ -29,7 +29,7 @@ class ConsoleApplication extends Application
      *
      * @api
      */
-    public function setHelperSet(HelperSet $helperSet)
+    public function setHelperSet(SymfonyHelperSet $helperSet)
     {
         // Only redeclared here to be above setCommands (it must be executed before!)
         parent::setHelperSet($helperSet);
