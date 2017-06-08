@@ -7,6 +7,8 @@
 namespace Mouf\Console;
 
 use Mouf\Actions\InstallUtils;
+use Mouf\Console\Command\MoufRewriteCommand;
+use Mouf\Console\ConsoleUtils;
 use Mouf\Installer\PackageInstallerInterface;
 use Mouf\MoufManager;
 
@@ -28,6 +30,12 @@ class ConsoleInstaller implements PackageInstallerInterface
         if (!$console->getSetterProperty('setHelperSet')->isValueSet()) {
             $console->getSetterProperty('setHelperSet')->setValue($helperSet);
         }
+
+        $consoleUtils = new ConsoleUtils($moufManager);
+
+        $moufRewriteCommand = $moufManager->createInstance(MoufRewriteCommand::class);
+        $moufRewriteCommand->getConstructorArgumentProperty("name")->setValue('mouf:rewrite');
+        $consoleUtils->registerCommand($moufRewriteCommand);
 
         // Let's rewrite the MoufComponents.php file to save the component
         $moufManager->rewriteMouf();
